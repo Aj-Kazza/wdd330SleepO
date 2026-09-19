@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: 'src/',
-  base: '/wdd330SleepO'
+  base: '/wdd330SleepO/',
 
   build: {
     outDir: '../dist',
