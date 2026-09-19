@@ -1,6 +1,6 @@
 export default class Alert {
   constructor() {
-    this.path = '/json/alerts.json';
+    this.path = '/wdd330SleepO/json/alerts.json';
   }
 
   async init() {
