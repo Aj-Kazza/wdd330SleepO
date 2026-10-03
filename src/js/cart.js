@@ -1,5 +1,11 @@
 import { getLocalStorage } from './utils.mjs';
 
+function updateCartCount() {
+  const cartItems = getLocalStorage('so-cart') || [];
+  const cartCount = document.querySelector('.cart-count');
+  cartCount.textContent = cartItems.length;
+}
+
 function renderCartContents() {
   const cartItems = getLocalStorage('so-cart') || [];
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
@@ -36,3 +42,4 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+updateCartCount();
