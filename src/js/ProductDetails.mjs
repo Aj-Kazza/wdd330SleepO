@@ -44,22 +44,24 @@ export default class ProductDetails {
     document.querySelector('.product-detail h2').textContent =
       this.product.NameWithoutBrand;
 
-    document.querySelector('.product-detail img').src = this.product.Image;
+    document.querySelector('.product-detail img').src =
+      this.product.Images.PrimaryLarge;
 
     document.querySelector('.product-detail img').alt = this.product.Name;
+
     const price = this.product.SuggestedRetailPrice;
     const finalPrice = this.product.FinalPrice;
 
     document.querySelector('.product-card__price').innerHTML = `
-  <span>$${finalPrice}</span>
-  ${
-    price > finalPrice
-      ? `<span class="product-card__discount">
-          ${Math.round(((price - finalPrice) / price) * 100)}% OFF
-        </span>`
-      : ''
-  }
-`;
+    <span>$${finalPrice}</span>
+    ${
+      price > finalPrice
+        ? `<span class="product-card__discount">
+            ${Math.round(((price - finalPrice) / price) * 100)}% OFF
+          </span>`
+        : ''
+    }
+  `;
 
     document.querySelector('.product__color').textContent =
       this.product.Colors[0].ColorName;
