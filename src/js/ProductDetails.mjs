@@ -1,5 +1,14 @@
 import { getLocalStorage, setLocalStorage } from './utils.mjs';
 
+function updateCartCount() {
+  const cartItems = getLocalStorage('so-cart') || [];
+  const cartCount = document.querySelector('.cart-count');
+
+  if (cartCount) {
+    cartCount.textContent = cartItems.length;
+  }
+}
+
 export default class ProductDetails {
   constructor(productId, dataSource) {
     this.productId = productId;
@@ -11,6 +20,7 @@ export default class ProductDetails {
     this.product = await this.dataSource.findProductById(this.productId);
 
     this.renderProductDetails();
+    updateCartCount();
 
     document
       .getElementById('addToCart')
@@ -21,6 +31,8 @@ export default class ProductDetails {
     const cart = getLocalStorage('so-cart') || [];
     cart.push(this.product);
     setLocalStorage('so-cart', cart);
+
+    updateCartCount();
   }
 
   renderProductDetails() {

@@ -194,6 +194,7 @@ button {
   font-size: var(--small-font);
   /* max-height: 120px; */
   align-items: center;
+  position: relative;
 }
 
 .cart-card__image {
@@ -229,6 +230,16 @@ button {
 
 .hide {
   display: none;
+}
+
+.cart-card__remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: red;
+  font-size: 1.2rem;
 }
 
 @media screen and (min-width: 500px) {
