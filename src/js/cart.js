@@ -9,7 +9,10 @@ loadHeaderFooter();
 function updateCartCount() {
   const cartItems = getLocalStorage('so-cart') || [];
   const cartCount = document.querySelector('.cart-count');
-  cartCount.textContent = cartItems.length;
+
+  if (cartCount) {
+    cartCount.textContent = cartItems.length;
+  }
 }
 
 function renderCartContents() {
@@ -25,7 +28,11 @@ function renderCartContents() {
   if (cartItems.length > 0) {
     cartFooter.classList.remove('hide');
 
-    const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
+    const total = cartItems.reduce(
+      (sum, item) => sum + Number(item.FinalPrice),
+      0
+    );
+
     cartFooter.querySelector(
       '.cart-total'
     ).innerHTML = `Total: $${total.toFixed(2)}`;
@@ -55,7 +62,8 @@ function cartItemTemplate(item) {
 
   <a href="#" class="cart-card__image">
     <img
-      src="${item.Image}"
+      src="${item.Images.PrimaryMedium}"
+
       alt="${item.Name}"
     />
   </a>
