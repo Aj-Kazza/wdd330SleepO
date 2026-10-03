@@ -154,6 +154,15 @@ button {
 .card__name {
   font-size: 1em;
 }
+
+.product-card__discount {
+  color: white;
+  background-color: var(--secondary-color);
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  display: inline-block;
+}
+
 /* End product list card */
 
 .product-detail {
