@@ -1,4 +1,4 @@
-import { getLocalStorage } from './utils.mjs';
+import { getLocalStorage, alertMessage, removeAllAlerts } from './utils.mjs';
 
 export default class CheckoutProcess {
   constructor(cartKey, dataSource) {
@@ -75,10 +75,29 @@ export default class CheckoutProcess {
     order.tax = this.tax.toFixed(2);
     order.shipping = this.shipping;
 
-    const response = await this.dataSource.checkout(order);
+    try {
+      const response = await this.dataSource.checkout(order);
 
-    console.log('Order submitted:', response);
+      console.log('Order submitted:', response);
 
-    return response;
+      localStorage.setItem(this.cartKey, JSON.stringify([]));
+
+      window.location.assign('/checkout/success.html');
+
+      return response;
+    } catch (err) {
+      console.error('Checkout failed:', err);
+
+      removeAllAlerts();
+
+      const messages =
+        err.message && typeof err.message === 'object'
+          ? Object.values(err.message)
+          : [err.message || 'Unable to place your order.'];
+
+      messages.forEach((message) => {
+        alertMessage(message);
+      });
+    }
   }
 }
