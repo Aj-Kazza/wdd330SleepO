@@ -24,32 +24,70 @@
 
             <label for="fname">
               First Name
-              <input type="text" id="fname" name="fname" required />
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                autocomplete="given-name"
+                required
+              />
             </label>
 
             <label for="lname">
               Last Name
-              <input type="text" id="lname" name="lname" required />
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                autocomplete="family-name"
+                required
+              />
             </label>
 
             <label for="street">
               Street Address
-              <input type="text" id="street" name="street" required />
+              <input
+                type="text"
+                id="street"
+                name="street"
+                autocomplete="street-address"
+                required
+              />
             </label>
 
             <label for="city">
               City
-              <input type="text" id="city" name="city" required />
+              <input
+                type="text"
+                id="city"
+                name="city"
+                autocomplete="address-level2"
+                required
+              />
             </label>
 
             <label for="state">
               State
-              <input type="text" id="state" name="state" required />
+              <input
+                type="text"
+                id="state"
+                name="state"
+                autocomplete="address-level1"
+                required
+              />
             </label>
 
             <label for="zip">
               ZIP Code
-              <input type="text" id="zip" name="zip" required />
+              <input
+                type="text"
+                id="zip"
+                name="zip"
+                inputmode="numeric"
+                pattern="[0-9]{5}(-[0-9]{4})?"
+                autocomplete="postal-code"
+                required
+              />
             </label>
           </fieldset>
 
@@ -58,7 +96,13 @@
 
             <label for="cardNumber">
               Credit Card Number
-              <input type="text" id="cardNumber" name="cardNumber" required />
+              <input
+                type="text"
+                id="cardNumber"
+                name="cardNumber"
+                autocomplete="cc-number"
+                required
+              />
             </label>
 
             <label for="expiration">
@@ -68,13 +112,20 @@
                 id="expiration"
                 name="expiration"
                 placeholder="MM/YY"
+                autocomplete="cc-exp"
                 required
               />
             </label>
 
             <label for="code">
               Security Code
-              <input type="text" id="code" name="code" required />
+              <input
+                type="text"
+                id="code"
+                name="code"
+                autocomplete="cc-csc"
+                required
+              />
             </label>
           </fieldset>
 
